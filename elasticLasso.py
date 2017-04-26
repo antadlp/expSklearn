@@ -12,13 +12,19 @@ from sklearn.metrics import r2_score
 '''
 what is 'r2_score'?
 
+from: 
+http://stackoverflow.com/questions/23309073/
+how-is-the-r2-value-in-scikit-learn-calculated
+
+@eickenberg
 The R^2 in scikit learn is essentially the same as what is
 described in the wikipedia article on the coefficient of
 determination (grep for "the most general definition"). It is 1 -
 residual sum of square / total sum of squares
 
-http://stackoverflow.com/questions/23309073/
-how-is-the-r2-value-in-scikit-learn-calculated
+from:
+http://stattrek.com/statistics/dictionary.aspx?definition=
+coefficient_of_determination
 
 The coefficient of determination (denoted by R2) is a key output
 of regression analysis. It is interpreted as the proportion of
@@ -43,16 +49,30 @@ variable is predictable. An R2 of 0.10 means that 10 percent of
 the variance in Y is predictable from X; an R2 of 0.20 means that
 20 percent is predictable; and so on.
 
-http://stattrek.com/statistics/dictionary.aspx?definition=
-coefficient_of_determination
-
 '''
 
+np.random.seed(42)
 
+'''
+What does np.random.seed(42)?
 
+from:
+http://stackoverflow.com/questions
+/21494489/what-does-numpy-random-seed0-do
 
+@Zhun Chen
+If you set the np.random.seed(a_fixed_number) every time you
+call the numpy's other random function, the result will be the
+same
 
+@John1024
+np.random.seed(0) makes the random numbers predictable, examples:
 
+>>> numpy.random.seed(0) ; numpy.random.rand(4)
+array([ 0.55,  0.72,  0.6 ,  0.54])
+>>> numpy.random.seed(0) ; numpy.random.rand(4)
+array([ 0.55,  0.72,  0.6 ,  0.54])
 
+'''
 
 
