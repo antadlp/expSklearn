@@ -117,6 +117,9 @@ y = np.dot(X, coef) is:
 
 [in latex notation end]
 
+m: is the number of training examples (n_samples)
+l: is the number of features (n_features (i dont know if lasso or elastic take
+count the bias as feature))
 
 '''
 
