@@ -121,6 +121,9 @@ m: is the number of training examples (n_samples)
 l: is the number of features (n_features (i dont know if lasso or elastic take
 count the bias as feature))
 
+open question: What advantage np.dot() has over np.matmul()? or for what reason
+the example chose np.dot() over np.matmul()
+
 '''
 
 # add noise
