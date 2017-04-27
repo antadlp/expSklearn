@@ -90,10 +90,35 @@ X = np.random.randn(n_samples, n_features)
 coef = 3 * np.random.randn(n_features)
 #just an vector 
 
-ind = np.arange(n_features)
+inds = np.arange(n_features)
 np.random.shuffle(inds)
 coef[inds[10:]] = 0 # sparsify coef
+
+
 y = np.dot(X, coef)
+'''
+How np.dot(), operates?
+
+from:
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html
+
+For 2-D arrays it is equivalent to matrix multiplication, and for 1-D arrays to
+inner product of vectors (without complex conjugation). For N dimensions it is
+a sum product over the last axis of a and the second-to-last of b
+
+So,
+
+y = np.dot(X, coef) is:
+[in latex notation begin]
+
+\begin{equation}
+\sum_{l=1}^{n-features}X_{m\times l}Coef_{l\times1}=y_{m\times1}
+\end{equation}
+
+[in latex notation end]
+
+
+'''
 
 # add noise
 y+= 0.01 * np.random.normal((n_samples,))
