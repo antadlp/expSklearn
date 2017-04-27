@@ -74,5 +74,43 @@ array([ 0.55,  0.72,  0.6 ,  0.54])
 array([ 0.55,  0.72,  0.6 ,  0.54])
 
 '''
+##generate some sparse data to play with
+#begin
+
+n_samples, n_features = 50, 200
+
+
+X = np.random.randn(n_samples, n_features)
+#Matrix of n_samples * n_features
+#its the same notation of ng coursera tutorial
+#the rows are the training sets and
+#the colums are the features.
+
+
+coef = 3 * np.random.randn(n_features)
+#just an vector 
+
+ind = np.arange(n_features)
+np.random.shuffle(inds)
+coef[inds[10:]] = 0 # sparsify coef
+y = np.dot(X, coef)
+
+# add noise
+y+= 0.01 * np.random.normal((n_samples,))
+
+# Split data in train set and test set
+n_samples = X.shape[0]
+X_train, y_train = X[:n_samples / 2], y[:n_samples / 2]
+x_test, y_test = X[n_samples /2:], y[n_samples / 2]
+
+#end
+##
+
+##Lasso
+
+
+
+
+
 
 
