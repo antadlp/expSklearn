@@ -77,7 +77,7 @@ array([ 0.55,  0.72,  0.6 ,  0.54])"
 ##generate some sparse data to play with
 #begin
 
-n_samples, n_features = 200, 50
+n_samples, n_features = 50, 200
 
 X = np.random.randn(n_samples, n_features)
 '''
@@ -92,7 +92,7 @@ coef = 3 * np.random.randn(n_features)
 
 inds = np.arange(n_features)
 np.random.shuffle(inds)
-coef[inds[150:]] = 0 # sparsify coef
+coef[inds[10:]] = 0 # sparsify coef
 
 
 y = np.dot(X, coef)
