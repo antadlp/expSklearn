@@ -211,8 +211,8 @@ scikit-learn/examples/linear_model/plot_lasso_and_elasticnet.py
 
 just use '//' floor division
 '''
-X_train, y_train = X[:n_samples // 2], y[:n_samples / 2]
-x_test, y_test = X[n_samples //2:], y[n_samples / 2]
+X_train, y_train = X[:n_samples // 2], y[:n_samples // 2]
+X_test, y_test = X[n_samples //2:], y[n_samples // 2:]
 '''
 Halved the data in a training set and a test set. The first half
 [n_samples//2:] is the test set, and the second half
@@ -224,6 +224,55 @@ Halved the data in a training set and a test set. The first half
 
 
 ##Lasso
+#begin
+
+from sklearn.linear_model import Lasso
+
+alpha = 0.1
+lasso = Lasso(alpha=alpha)
+
+y_pred_lasso = lasso.fit(X_train, y_train).predict(X_test)
+r2_score_lasso = r2_score(y_test, y_pred_lasso)
+print(lasso)
+print("r^2 on test data : %f" % r2_score_lasso)
+
+##Lasso
+#end
+
+##Elastic net
+#begin
+from sklearn.linear_model import ElasticNet
+
+enet = ElasticNet(alpha=alpha, l1_ratio=0.9)
+
+y_pred_enet = enet.fit(X_train, y_train).predict(X_test)
+r2_score_enet = r2_score(y_test, y_pred_enet)
+print(enet)
+print("r^2 on test data : %f" % r2_score_enet)
+
+##Elastic Net
+#end
+
+##plot 
+#begin
+plt.plot(enet.coef_, color='lightgreen', linewidth=2,
+      label='Elastic net coefficients')
+plt.plot(lasso.coef_, color='gold', linewidth=2,
+      label='Lasso coefficients')
+plt.plot(coef, '--', color='navy', label='original coefficients')
+plt.legend(loc='best')
+plt.title("Lasso R^2: %f, Elastic Net R^2: %f"
+      % (r2_score_lasso, r2_score_enet))
+plt.show()
+##plot
+#end
+
+
+
+
+
+
+
 
 
 
